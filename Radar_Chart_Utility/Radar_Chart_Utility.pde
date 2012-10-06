@@ -5,6 +5,7 @@ to plot a radar chart. I will use a simple example of countries as an entitiy an
 such as Primary energy production, renewable electricty generation, energy consumption, Carbon dioxide emissions,
 population. This example will aslo demostrate to plot additional entities on the same chart to aid comparison. 
 
+To do :
 And, the example also displays how this chart can be used to demostrate the gradient over a scale of 
 another dimension, in this example its time, ranging from 1981 to 2009.
 ----------------------------------------------------------------------------------------------------*/
@@ -13,14 +14,15 @@ RadarChart rc;
 
 void setup(){  
   
-  setupBackground();
-  
-  setupRadarChart();  //scale and draw the axes of all dimensions of the entity
- 
-  plotRadarChart();  //plot the data points values
+  size(800,600);  //screen size set to 800*600  
 }
 
 void draw(){
-  
+     
+  setupBackground();
+ 
+  setupRadarChart();  //scale and draw the axes of all dimensions of the entity
+ 
+  plotRadarChart();  //plot the data points values 
 }
 

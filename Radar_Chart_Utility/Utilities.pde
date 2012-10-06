@@ -1,9 +1,10 @@
 
+Axis[] axes;
+
 //basic utility methods used in setup() and draw()
 
 void setupBackground(){
- 
-  size(800,600);  //screen size set to 800*600
+   
   background(#FFFFFF);  //back ground color white
  
   // Header label
@@ -16,7 +17,19 @@ void setupBackground(){
 
 void setupRadarChart(){    
 
-  rc = new RadarChart(percentX(15),percentX(3),percentX(40),percentY(70),percentX(5),percentY(5),7,5,percentX(8),percentY(8));
+  //sample dimensions of the radar chart
+  //example - considering a country's energy production, consumption, emission and population data
+  //Country as an entity and these parameters as dimensions
+  axes = new Axis[5];
+  axes[0] = new Axis(1,"Energy production","Quad BTU");
+  axes[1] = new Axis(2,"Electricty generation","Quad BTu");
+  axes[2] = new Axis(3,"Energy consumption","Quad BTU");
+  axes[3] = new Axis(4,"CO2 emissions","Mil metric tons");
+  axes[4] = new Axis(5,"Population","millions");
+  
+  rc = new RadarChart(percentX(25),percentX(3),percentX(40),percentY(70),percentX(5),percentY(5),6,5,percentX(15),percentY(12)); //5 dimensions, 6 intrevals
+  
+  rc.drawChart(); //draw the skeleton chart. 
 }
 
 void plotRadarChart(){
@@ -32,4 +45,20 @@ int percentX(int value){
 //Y - axis
 int percentY(int value){
   return (value * height)/100;
+}
+
+/*-----------------------------------------------
+-------------------------------------------------*/
+
+class Axis{
+
+  int id;
+  String Name;
+  String Unit;
+  
+  Axis(int _id, String _name, String _unit){
+    id = _id;
+    Name = _name;
+    Unit = _unit;
+  }
 }
